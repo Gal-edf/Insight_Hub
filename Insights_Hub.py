@@ -48,7 +48,7 @@ apps = {
     "maps": {
         "title": "Site Navigator",
         "description": "Know Where Your Sites Are",
-        "url": "https://app.powerbi.com/reportEmbed?reportId=1fb1aaae-7974-4171-b2d6-258b54a30a7a&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4",
+        "url": "https://app.powerbi.com/reportEmbed?reportId=1fb1aaae-7974-4171-b2d6-258b54a30a7a&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4&chromeless=1&navContentPaneEnabled=false",
         "icon": "https://i.imgur.com/lVXwJ9d.png",
         "icon_size": "65px",
         "text_offset": "12px",
@@ -57,7 +57,7 @@ apps = {
     "iec": {
         "title": "IEC Comparison",
         "description": "Our Data Their Records",
-        "url": "https://app.powerbi.com/reportEmbed?reportId=e2c7c7ce-1e4d-4ce3-95e5-fe76b81d1662&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4",
+        "url": "https://app.powerbi.com/reportEmbed?reportId=e2c7c7ce-1e4d-4ce3-95e5-fe76b81d1662&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4&chromeless=1&navContentPaneEnabled=false",
         "icon": "https://i.imgur.com/MslXbmI.png",
         "icon_size": "65px",
         "text_offset": "12px", # Reduced spacing to pull text up
