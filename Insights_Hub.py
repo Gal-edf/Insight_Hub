@@ -39,7 +39,7 @@ apps = {
     "portfolio": {
         "title": "Portfolio Overview",
         "description": "One Grid Total Insights",
-        "url": "https://app.powerbi.com/reportEmbed?reportId=0edd3e84-b6ab-4bc1-b670-53f26c133e19&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4",
+        "url": "https://app.powerbi.com/reportEmbed?reportId=0edd3e84-b6ab-4bc1-b670-53f26c133e19&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4&chromeless=1&navContentPaneEnabled=false",
         "icon": "https://i.imgur.com/WX1KijU.png",
         "icon_size": "65px",
         "text_offset": "12px",
