@@ -39,17 +39,17 @@ The **Insight Hub** is designed to provide a seamless user experience for data-d
    git clone [https://github.com/your-username/insight-hub.git](https://github.com/your-username/insight-hub.git)
    cd insight-hub
    
-**Install requirements:**
+2. **Install requirements:**
    ```bash
    pip install streamlit
    ```
-   3. **Run the application:**
+3. **Run the application:**
    ```bash
     streamlit run your_filename.py 
     ```
-   4. **Configuration:**
-      To add or modify dashboards, update the apps dictionary in the source code:
-       ```python 
+4. **Configuration:**
+   To add or modify dashboards, update the apps dictionary in the source code:
+    ```python 
    apps = {
        "app_id": {
            "title": "Display Name",
@@ -58,7 +58,6 @@ The **Insight Hub** is designed to provide a seamless user experience for data-d
            "icon": "Icon_URL",
            "category": "Department"
        }
-   }
-```   
+   }```   
 5. **License:**
    Copyright © 2026 Performance. All rights reserved.  
