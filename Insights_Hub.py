@@ -151,7 +151,7 @@ if st.session_state.current_app == 'hub':
                     <div style="display: flex; justify-content: flex-start; align-items: center; height: {header_height}; width: 100%;">
                         <img src="{logo_url}" 
                              width="{logo_width_px}" 
-                             style="display: block; height: auto; max-width: none !important;">
+                             style="display: block; height: auto; max-width: none !important;margin-top: -170px;">
                     </div>
                 ''', unsafe_allow_html=True)
 
@@ -159,18 +159,11 @@ if st.session_state.current_app == 'hub':
         st.markdown(f"""
                     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: {header_height}; text-align: center;">
                         <h1 style='color: #1e3d59; font-size: 3.5rem; margin-bottom: 0; line-height: 1;'> Insights Hub </h1>
-                        <h1 style='color: #5f6368; font-size: 2rem; margin-top: 5px;'>Watts Of Wisdom</h1>
+                        <h1 style='color: #5f6368; font-size: 2rem; margin-top: 5px;'>Empowering Your Performance</h1>
                     </div>
                 """, unsafe_allow_html=True)
 
-    with h_right:
-        st.markdown(f"""
-                    <div style="display: flex; justify-content: flex-end; align-items: center; height: {header_height};">
-                        <p style="color: #5f6368; font-size: 2.2rem; margin: 0; font-weight: 600;">
-                            © Performance
-                        </p>
-                    </div>
-                """, unsafe_allow_html=True)
+
 
     st.write("<br>", unsafe_allow_html=True)
 
