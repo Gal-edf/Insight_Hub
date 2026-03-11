@@ -16,7 +16,6 @@ def navigate_to(app_name):
 
 
 # --- DATA DEFINITION ---
-# Added 'text_offset' to control spacing between icon and text per app
 apps = {
     "operative": {
         "title": "Operative Dashboard",
@@ -24,7 +23,7 @@ apps = {
         "url": "https://app.powerbi.com/reportEmbed?reportId=1ee02e78-e959-426a-b281-98d9a4fbdf54&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4&chromeless=1&navContentPaneEnabled=false",
         "icon": "https://i.imgur.com/HWd95M3.png",
         "icon_size": "65px",
-        "text_offset": "12px", # Standard spacing
+        "text_offset": "12px",
         "category": ""
     },
     "bess": {
@@ -60,16 +59,17 @@ apps = {
         "url": "https://app.powerbi.com/reportEmbed?reportId=e2c7c7ce-1e4d-4ce3-95e5-fe76b81d1662&autoAuth=true&ctid=38d142cb-643c-4f01-a704-99d5fffe36e4&chromeless=1&navContentPaneEnabled=false",
         "icon": "https://i.imgur.com/MslXbmI.png",
         "icon_size": "65px",
-        "text_offset": "12px", # Reduced spacing to pull text up
+        "text_offset": "12px",
         "category": ""
     },
     "soilsense": {
         "title": "",
         "description": "Turn Dust Into Energy",
-        "url": "https://soilsense.streamlit.app",
+        # This URL will now correctly open in a new tab
+        "url": "https://app.snowflake.com/streamlit/us-east-1/jmc06850/#/apps/4uzvmnkunmu7dvqe4lcd",
         "icon": "https://i.imgur.com/09b9kI7.png",
         "icon_size": "200px",
-        "text_offset": "-60px", # Reduced spacing to pull text up
+        "text_offset": "-60px",
         "category": ""
     }
 }
@@ -102,7 +102,7 @@ if st.session_state.current_app == 'hub':
             align-items: center;    
             position: relative;
             border: 1px solid #eef2f6;
-            overflow: hidden; /* Prevents large icons from breaking the card */
+            overflow: hidden;
         }}
 
         .dashboard-card:hover {{
@@ -111,6 +111,7 @@ if st.session_state.current_app == 'hub':
             border-color: #0078d4;
         }}
 
+        /* Style for the invisible Streamlit button */
         .stButton button {{
             position: relative;
             top: -{card_height}; 
@@ -163,8 +164,6 @@ if st.session_state.current_app == 'hub':
                     </div>
                 """, unsafe_allow_html=True)
 
-
-
     st.write("<br>", unsafe_allow_html=True)
 
     # --- CARD GRID ---
@@ -182,7 +181,7 @@ if st.session_state.current_app == 'hub':
             else:
                 icon_html = f'<div style="font-size: {current_icon_size};">{app_info["icon"]}</div>'
 
-            # Render the visual Card (HTML)
+            # Render visual Card
             st.markdown(f"""
                     <div class="dashboard-card">
                         <div style="margin-bottom: {current_offset}; display: flex; justify-content: center; align-items: center;">
@@ -194,9 +193,12 @@ if st.session_state.current_app == 'hub':
                     </div>
                 """, unsafe_allow_html=True)
 
-            # --- DYNAMIC NAVIGATION LOGIC ---
-            # If the URL is an external Streamlit app, we use a transparent <a> link
-            if "streamlit.app" in app_info["url"]:
+            # --- DYNAMIC NAVIGATION LOGIC (THE FIX) ---
+            # Check if it's a Snowflake app or a standard Streamlit Cloud app
+            is_external = "snowflake.com" in app_info["url"] or "streamlit.app" in app_info["url"]
+
+            if is_external:
+                # Render an invisible <a> tag that covers the entire card
                 st.markdown(f"""
                         <a href="{app_info['url']}" target="_blank" style="
                             position: relative;
@@ -208,17 +210,17 @@ if st.session_state.current_app == 'hub':
                             text-decoration: none;
                             background: transparent;
                             margin-bottom: -{card_height};
+                            cursor: pointer;
                         "></a>
                     """, unsafe_allow_html=True)
             else:
-                # For PowerBI or internal pages, keep the original button logic
+                # Use the original internal navigation for PowerBI reports
                 if st.button("", key=f"btn_{app_id}", use_container_width=False):
                     navigate_to(app_id)
                     st.rerun()
 
 # --- PAGE 2: THE DASHBOARD VIEW ---
 else:
-    # (Rest of the code remains unchanged)
     selected_app = apps[st.session_state.current_app]
 
     st.markdown("""
