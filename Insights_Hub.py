@@ -66,7 +66,7 @@ apps = {
         "title": "",
         "description": "Turn Dust Into Energy",
         # This URL will now correctly open in a new tab
-        "url": "https://app.snowflake.com/streamlit/us-east-1/jmc06850/#/apps/4uzvmnkunmu7dvqe4lcd",
+        "url": "https://app.snowflake.com/streamlit/us-east-1/jmc06850/#/apps/il5zkhtv3fdo27imgcvs",
         "icon": "https://i.imgur.com/09b9kI7.png",
         "icon_size": "200px",
         "text_offset": "-60px",
